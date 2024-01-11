@@ -1,3 +1,5 @@
+
+
 /// All possible notifications you can subscribe to with `Observer`.
 /// - seeAlso: [Notificatons](https://developer.apple.com/library/mac/documentation/AppKit/Reference/NSAccessibility_Protocol_Reference/index.html#//apple_ref/c/data/NSAccessibilityAnnouncementRequestedNotification)
 public enum AXNotification: String {
@@ -67,7 +69,7 @@ public enum AXNotification: String {
 
 /// All UIElement roles.
 /// - seeAlso: [Roles](https://developer.apple.com/library/mac/documentation/AppKit/Reference/NSAccessibility_Protocol_Reference/index.html#//apple_ref/doc/constant_group/Roles)
-public enum Role: String {
+public enum Role: String, Codable {
     case unknown            = "AXUnknown"
     case button             = "AXButton"
     case radioButton        = "AXRadioButton"
@@ -127,7 +129,7 @@ public enum Role: String {
 
 /// All UIElement subroles.
 /// - seeAlso: [Subroles](https://developer.apple.com/library/mac/documentation/AppKit/Reference/NSAccessibility_Protocol_Reference/index.html#//apple_ref/doc/constant_group/Subroles)
-public enum Subrole: String {
+public enum Subrole: String, Codable {
     case unknown              = "AXUnknown"
     case closeButton          = "AXCloseButton"
     case zoomButton           = "AXZoomButton"
@@ -393,7 +395,7 @@ public enum Attribute: String {
 
 /// All actions a `UIElement` can support.
 /// - seeAlso: [Actions](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Protocols/NSAccessibility_Protocol/#//apple_ref/doc/constant_group/Actions)
-public enum Action: String {
+public enum Action: String, Codable {
     case press           = "AXPress"
     case increment       = "AXIncrement"
     case decrement       = "AXDecrement"
@@ -406,3 +408,5 @@ public enum Action: String {
     case showAlternateUI = "AXShowAlternateUI"
     case showDefaultUI   = "AXShowDefaultUI"
 }
+
+

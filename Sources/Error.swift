@@ -1,3 +1,5 @@
+#if os(macOS)
+
 import Foundation
 import Cocoa
 
@@ -56,3 +58,5 @@ extension AXError: CustomStringConvertible {
 /// - seeAlso: [AXUIElement.h Reference](https://developer.apple.com/library/mac/documentation/ApplicationServices/Reference/AXUIElement_header_reference/)
 /// - seeAlso: `UIElement` for a list of errors that you should handle
 //public typealias Error = AXError
+
+#endif

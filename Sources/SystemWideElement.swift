@@ -1,3 +1,5 @@
+#if os(macOS)
+
 import Foundation
 import Cocoa
 
@@ -16,3 +18,4 @@ open class SystemWideElement: UIElement {
         return try super.elementAtPosition(x, y)
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if os(macOS)
 import Cocoa
 
 @discardableResult
@@ -6,3 +7,5 @@ public func checkIsProcessTrusted(prompt: Bool = false) -> Bool {
     let opts = [promptKey: prompt] as CFDictionary
     return AXIsProcessTrustedWithOptions(opts)
 }
+
+#endif
