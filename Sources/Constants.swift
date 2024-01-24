@@ -2,7 +2,7 @@
 
 /// All possible notifications you can subscribe to with `Observer`.
 /// - seeAlso: [Notificatons](https://developer.apple.com/library/mac/documentation/AppKit/Reference/NSAccessibility_Protocol_Reference/index.html#//apple_ref/c/data/NSAccessibilityAnnouncementRequestedNotification)
-public enum AXNotification: String {
+public enum AXNotification: String, Codable, CaseIterable, IterableStrings {
     // Focus notifications
     case mainWindowChanged       = "AXMainWindowChanged"
     case focusedWindowChanged    = "AXFocusedWindowChanged"
@@ -69,7 +69,7 @@ public enum AXNotification: String {
 
 /// All UIElement roles.
 /// - seeAlso: [Roles](https://developer.apple.com/library/mac/documentation/AppKit/Reference/NSAccessibility_Protocol_Reference/index.html#//apple_ref/doc/constant_group/Roles)
-public enum Role: String, Codable {
+public enum Role: String, Codable, CaseIterable, IterableStrings {
     case unknown            = "AXUnknown"
     case button             = "AXButton"
     case radioButton        = "AXRadioButton"
@@ -129,7 +129,7 @@ public enum Role: String, Codable {
 
 /// All UIElement subroles.
 /// - seeAlso: [Subroles](https://developer.apple.com/library/mac/documentation/AppKit/Reference/NSAccessibility_Protocol_Reference/index.html#//apple_ref/doc/constant_group/Subroles)
-public enum Subrole: String, Codable {
+public enum Subrole: String, Codable, CaseIterable, IterableStrings {
     case unknown              = "AXUnknown"
     case closeButton          = "AXCloseButton"
     case zoomButton           = "AXZoomButton"
@@ -169,7 +169,7 @@ public enum Orientation: Int {
     case horizontal = 2
 }
 
-public enum Attribute: String {
+public enum Attribute: String, Codable {
     // Standard attributes
     case role                                   = "AXRole" //(NSString *) - type, non-localized (e.g. radioButton)
     case roleDescription                        = "AXRoleDescription" //(NSString *) - user readable role (e.g. "radio button")
@@ -395,7 +395,7 @@ public enum Attribute: String {
 
 /// All actions a `UIElement` can support.
 /// - seeAlso: [Actions](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Protocols/NSAccessibility_Protocol/#//apple_ref/doc/constant_group/Actions)
-public enum Action: String, Codable {
+public enum Action: String, Codable, CaseIterable, IterableStrings {
     case press           = "AXPress"
     case increment       = "AXIncrement"
     case decrement       = "AXDecrement"
@@ -407,6 +407,13 @@ public enum Action: String, Codable {
     case delete          = "AXDelete"
     case showAlternateUI = "AXShowAlternateUI"
     case showDefaultUI   = "AXShowDefaultUI"
+ 
+  
 }
 
 
+public protocol IterableStrings: CaseIterable, RawRepresentable, Codable
+where AllCases: RandomAccessCollection,
+      RawValue == String {
+  
+}
