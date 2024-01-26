@@ -108,6 +108,7 @@ public final class Application: UIElement {
     // return axWindows?.map({ UIElement($0) })
     return axWindows?.compactMap({ Window($0, in: self) })
   }
+
   
   /// Returns the element at the specified top-down coordinates, or nil if there is none.
   public override func elementAtPosition(_ x: Float, _ y: Float) throws -> UIElement? {

@@ -125,6 +125,7 @@ public enum Role: String, Codable, CaseIterable, IterableStrings {
     case layoutArea         = "AXLayoutArea"
     case layoutItem         = "AXLayoutItem"
     case handle             = "AXHandle"
+    case dockItem           = "AXDockItem"  // added by CMRS
 }
 
 /// All UIElement subroles.
@@ -159,6 +160,12 @@ public enum Subrole: String, Codable, CaseIterable, IterableStrings {
     case toggle               = "AXToggle"
     case switchSubrole        = "AXSwitch"
     case descriptionList      = "AXDescriptionList"
+    case applicationDockItem  = "AXApplicationDockItem"  // added by CMRS
+    case separatorDockItem    = "AXSeparatorDockItem"  // added by CMRS
+    case documentDockItem     = "AXDocumentDockItem"  // added by CMRS
+    case minimizedWindowDockItem = "AXMinimizedWindowDockItem"  // added by CMRS
+    case trashDockItem = "AXTrashDockItem"  // added by CMRS
+
 }
 
 /// Orientations returned by the orientation property.
@@ -391,6 +398,8 @@ public enum Attribute: String, Codable {
     // Unknown attributes
     case functionRowTopLevelElements            = "AXFunctionRowTopLevelElements"
     case childrenInNavigationOrder              = "AXChildrenInNavigationOrder"
+  
+    case isApplicationRunning                   = "AXIsApplicationRunning"  // added by CMRS
 }
 
 /// All actions a `UIElement` can support.
@@ -404,9 +413,11 @@ public enum Action: String, Codable, CaseIterable, IterableStrings {
     case cancel          = "AXCancel"
     case raise           = "AXRaise"
     case showMenu        = "AXShowMenu"
+    case showExpose      = "AXShowExpose" // added by CMRS
     case delete          = "AXDelete"
     case showAlternateUI = "AXShowAlternateUI"
     case showDefaultUI   = "AXShowDefaultUI"
+    case removeDesktop   = "AXRemoveDesktop" // added by CMRS
  
   
 }

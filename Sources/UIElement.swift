@@ -226,7 +226,11 @@ open class UIElement {
   open func attribute<T>(_ attribute: Attribute) throws -> T? {
     return try self.attribute(attribute.rawValue)
   }
-  
+
+  open func attributeAsString(_ attribute: Attribute) throws -> String? { // CMRS added 
+    return try self.attribute(attribute.rawValue)
+  }
+
   open func attribute<T>(_ attribute: String) throws -> T? {
     var value: AnyObject?
     let error = AXUIElementCopyAttributeValue(element, attribute as CFString, &value)
